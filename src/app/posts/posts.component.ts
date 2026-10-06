@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
 import { Post } from '../../models/Post';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -18,4 +19,5 @@ export class PostsComponent implements OnInit {
   getposts() {
     return this.postService.getPosts().subscribe((p) => (this.posts = p));
   }
+  addPosts() {}
 }
