@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
 import { Post } from '../../models/Post';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -31,6 +32,6 @@ export class PostsComponent implements OnInit {
   deletePost(id: number) {
     this.postService
       .deletePost(id)
-      .subscribe((posts) => this.posts.filter(posts.id) === id);
+      .subscribe(() => (this.posts = this.posts.filter((p) => p.id != id)));
   }
 }
