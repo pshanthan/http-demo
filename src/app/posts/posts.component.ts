@@ -24,7 +24,7 @@ export class PostsComponent implements OnInit {
     const newPost: Post = {
       id: this.getposts.length + 1,
       userId: this.getposts.length + 1,
-      title: String(this.#bodyInput),
+      title: String(this.#titleInput),
       body: String(this.#bodyInput),
     };
     this.postService.addPost(newPost);
