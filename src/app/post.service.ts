@@ -15,4 +15,7 @@ export class PostService {
   addPost(p: Post): Observable<Post> {
     return this.httpClient.post<Post>(this.apiUrl, p);
   }
+  deletePost(id: number) {
+    return this.httpClient.delete<Post>(this.apiUrl);
+  }
 }
