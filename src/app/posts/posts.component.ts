@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
 import { Post } from '../../models/Post';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -13,11 +12,21 @@ import { Observable } from 'rxjs';
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
   constructor(private postService: PostService) {}
+  #titleInput: string = '';
+  #bodyInput: string = '';
   ngOnInit(): void {
     this.getposts();
   }
   getposts() {
     return this.postService.getPosts().subscribe((p) => (this.posts = p));
   }
-  addPosts() {}
+  addPosts() {
+    const newPost: Post = {
+      id: this.getposts.length + 1,
+      userId: this.getposts.length + 1,
+      title: String(this.#bodyInput),
+      body: String(this.#bodyInput),
+    };
+    this.postService.addPost(newPost);
+  }
 }
