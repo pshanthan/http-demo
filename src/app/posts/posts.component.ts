@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PostService } from '../post.service';
+import { Post } from '../../models/Post';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-posts',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './posts.component.html',
-  styleUrl: './posts.component.css'
+  styleUrl: './posts.component.css',
 })
-export class PostsComponent {
-
+export class PostsComponent implements OnInit {
+  posts: Post[] = [];
+  constructor(private postService: PostService) {}
+  ngOnInit(): void {
+    this.getposts();
+  }
+  getposts() {
+    return this.postService.getPosts().subscribe((p) => (this.posts = p));
+  }
 }
