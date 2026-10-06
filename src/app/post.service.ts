@@ -12,4 +12,7 @@ export class PostService {
   getPosts(): Observable<Post[]> {
     return this.httpClient.get<Post[]>(this.apiUrl);
   }
+  addPost(p: Post): Observable<Post> {
+    return this.httpClient.post<Post>(this.apiUrl, p);
+  }
 }
