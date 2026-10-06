@@ -16,6 +16,6 @@ export class PostService {
     return this.httpClient.post<Post>(this.apiUrl, p);
   }
   deletePost(id: number) {
-    return this.httpClient.delete<Post>(this.apiUrl);
+    return this.httpClient.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
