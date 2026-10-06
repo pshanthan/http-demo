@@ -1,5 +1,6 @@
 <input #titleInput placeholder="Title" />
 <input #bodyInput placeholder="Body" />
+<button (click)="addPosts()">Submit</button>
 <div *ngFor="let p of posts">
   <div>{{ p.id }} - {{ p.userId }} - {{ p.title }} -{{ p.body }}</div>
   POSTS:
